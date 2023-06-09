@@ -20,6 +20,13 @@ st.set_page_config(
 
 st.title(":space_invader: MVC Equipment Schedule Automation")
 st.markdown("##")
+
+
+st.write('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
+st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
+st.write('The file path will be:')
+st.code('C:/Users/user_directory/Downloads') 
+
  
 uploaded_file = st.file_uploader("Supply Your Schedule")
  
