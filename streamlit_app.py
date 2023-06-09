@@ -41,7 +41,7 @@ def display_xl():
  
 def Automation_xl(uploaded_file):
   global WB
-  WB = load_workbook(uploaded_file, data_only = True, read_only = False)#, keep_vba = True)
+  WB = load_workbook(uploaded_file, data_only = True, read_only = False, keep_vba = True)
   WS = WB.active
   SH = WB["Equipment"]
   
