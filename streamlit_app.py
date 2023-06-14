@@ -22,11 +22,30 @@ st.title(":space_invader: MVC Equipment Schedule Automation")
 st.markdown("##")
 
 
-st.write('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
+st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
 st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
-st.write('The file path will be:')
-st.code('C:\\Users\\user_directory\\Downloads') 
+st.text('The file path will be:')
+st.code('C:/Users/user_directory/Downloads') 
 
+# options = st.multiselect(
+#     'Who is using this program?',
+#     ['Marcus', 'Kevin', 'Nick', 'Robert', 'Aaron'])
+
+# st.write('You selected:', options)
+st.text('All loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. Refer to the table below for example formatting:')
+ex = pd.DataFrame(
+    {
+        'Key': ['CP', '1', 'EF', '2', 'FCU', '1'],
+        'Equipment': ['Circulation Pump', '', 'Exhaust Fan', '', 'Fan Coil Unit', ''],
+        'Load': ['1-1/2 HP', '', '3.5 FLA', '', '19 MCA', ''],
+        'Volts': ['120', '', '120', '', '208',''],
+        '%%C': ['1', '', '1', '', '1', '']
+        }
+)
+
+# st.table(ex) 
+
+st.dataframe(width = 1000,data = ex)
  
 uploaded_file = st.file_uploader("Supply Your Schedule")
  
