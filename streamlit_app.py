@@ -29,11 +29,6 @@ st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Loc
 st.text('The file path will be:')
 st.code('C:/Users/user_directory/Downloads') 
 
-# options = st.multiselect(
-#     'Who is using this program?',
-#     ['Marcus', 'Kevin', 'Nick', 'Robert', 'Aaron'])
-
-# st.write('You selected:', options)
 st.text('Loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. MOP/MOCP must be listed first. Table below for example formatting:')
 ex = pd.DataFrame(
     {
@@ -44,8 +39,6 @@ ex = pd.DataFrame(
         '%%C': ['1', '', '1', '', '1', '']
         }
 )
-
-# st.table(ex) 
 
 st.dataframe(width = 1000,data = ex)
 
