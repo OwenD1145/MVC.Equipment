@@ -24,7 +24,6 @@ st.markdown("##")
 # txt = st.text_area('Text to Analyze', 
 #                    'heres some sample text')
 
-
 st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
 st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
 st.text('The file path will be:')
@@ -50,13 +49,8 @@ ex = pd.DataFrame(
 
 st.dataframe(width = 1000,data = ex)
 
-
-
-
- 
 uploaded_file = st.file_uploader("Supply Your Schedule")
  
-    
 def display_xl():
   if uploaded_file is not None:
     
@@ -334,7 +328,6 @@ def Automation_xl(uploaded_file):
       print(f'hp = {hp}')
       return hp
   
-  
   def EQ_120_3_MCA(number): 
       
       hp = ''
@@ -400,7 +393,6 @@ def Automation_xl(uploaded_file):
               hp = 'something else'
       print(f'hp = {hp}')
       return hp
-  
   
   # def EQ_120_1_AMPS(number): 
       
@@ -763,8 +755,7 @@ def Automation_xl(uploaded_file):
           if load_type == 'HP':
               for i, value in enumerate(volt_phase_check_HP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-              continue
-        
+              continue     
   
       if 'MOP' or 'MOCP' in cell.value:
          
@@ -779,9 +770,7 @@ def Automation_xl(uploaded_file):
           if load_type == 'MOCP':
               for i, value in enumerate(volt_phase_check_MOP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-              continue
-             
-             
+              continue     
   
       if cell.value is not None:
           
@@ -847,7 +836,6 @@ if uploaded_file is not None:
         )
     st.button('No Way')
  
-
 # SIDEBAR
 
 st.sidebar.header("There Will Be More Options Here Soon:")
