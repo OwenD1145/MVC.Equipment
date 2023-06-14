@@ -4,7 +4,7 @@ from PIL import Image
 from openpyxl import Workbook, load_workbook
 import io
 
-# image = Image.open('MVC-LogowAddress.PNG')
+image = Image.open('MVC-LogowAddress.PNG')
  
 st.set_page_config(
   page_title="Equipment Dashboard",
@@ -20,6 +20,9 @@ st.set_page_config(
 
 st.title(":space_invader: MVC Equipment Schedule Automation")
 st.markdown("##")
+ 
+# txt = st.text_area('Text to Analyze', 
+#                    'heres some sample text')
 
 
 st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
@@ -32,12 +35,12 @@ st.code('C:/Users/user_directory/Downloads')
 #     ['Marcus', 'Kevin', 'Nick', 'Robert', 'Aaron'])
 
 # st.write('You selected:', options)
-st.text('All loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. Refer to the table below for example formatting:')
+st.text('Loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. MOP/MOCP must be listed first. Table below for example formatting:')
 ex = pd.DataFrame(
     {
         'Key': ['CP', '1', 'EF', '2', 'FCU', '1'],
         'Equipment': ['Circulation Pump', '', 'Exhaust Fan', '', 'Fan Coil Unit', ''],
-        'Load': ['1-1/2 HP', '', '3.5 FLA', '', '19 MCA', ''],
+        'Load': ['1-1/2 HP', '', '3.5 FLA', '','25 MOCP', '19 MCA' ],
         'Volts': ['120', '', '120', '', '208',''],
         '%%C': ['1', '', '1', '', '1', '']
         }
@@ -46,6 +49,10 @@ ex = pd.DataFrame(
 # st.table(ex) 
 
 st.dataframe(width = 1000,data = ex)
+
+
+
+
  
 uploaded_file = st.file_uploader("Supply Your Schedule")
  
@@ -109,6 +116,29 @@ def Automation_xl(uploaded_file):
       '25' : ['3#8,1#10G.', '1"','60/3', '40A', 'FRS-R'],
       '30' : ['3#6,1#10G.', '1"','60/3', '50A', 'FRS-R'],
   }
+  
+  table_120_1_MOCP = {
+      '5' : ['2#12,1#12G.', '1/2"', '$T0', '5A', 'FRN-R'],
+      '10' : ['2#12,1#12G.', '1/2"', '$T0', '10A', 'FRN-R'],
+      '15' : ['2#12,1#12G.', '1/2"', '$T0', '15A', 'FRN-R'],
+      '20' : ['2#12,1#12G.', '1/2"', '$T0', '20A', 'FRN-R'],
+      '25' : ['2#10,1#10G.', '3/4"', '30/2', '25A', 'FRN-R'],
+      '30' : ['2#10,1#10G.', '3/4"', '30/2', '30A', 'FRN-R'],
+      '35' : ['2#8,1#10G.', '3/4"', '60/2', '35A', 'FRN-R'],
+      '40' : ['2#8,1#10G.', '3/4"', '60/2', '40A', 'FRN-R'],
+      '45' : ['2#6,1#10G.', '3/4"', '60/2', '45A', 'FRN-R'],
+      '50' : ['2#6,1#10G.', '3/4"', '60/2', '50A', 'FRN-R'],
+      '60' : ['2#4,1#8G.', '1"', '60/2', '60A', 'FRN-R'],
+      '70' : ['2#4,1#8G.', '1"', '60/2', '70A', 'FRN-R'],
+      '80' : ['2#3,1#8G.', '1"', '100/2', '80A', 'FRN-R'],
+      '90' : ['2#2,1#8G.', '1-1/4"', '100/2', '90A', 'FRN-R'],
+      '100' : ['2#1,1#6G.', '1-1/4"', '100/2', '100A', 'FRN-R'],
+      '110' : ['2#1,1#6G.', '1-1/4"', '200/2', '110A', 'FRN-R'],
+      '125' : ['2-1/0,#6G.', '1-1/2"C', '200/2', '125A', 'FRN-R'],
+      '150' : ['2-1/0,#6G.', '1-1/2"C', '200/2', '150A', 'FRN-R'],
+      'something else' : ['blah']
+  }
+  
   
   table_120_1_MCA = {
       '5' : ['2#12,1#12G.', '1/2"', '$T0', '---', '---'],
@@ -653,11 +683,11 @@ def Automation_xl(uploaded_file):
       print(load)
       
       if voltage == 120 and phase == 1:
-          size = table_120_1_MCA[load]
+          size = table_120_1_MOCP[load]
       if voltage == 120 and phase == 3:
           size = table_120_3_MCA[load]
       if voltage == 208 and phase == 1:
-          size = table_120_1_MCA[load]
+          size = table_120_1_MOCP[load]
       if voltage == 208 and phase == 3:
           size = table_120_3_MCA[load]
       return size
@@ -725,6 +755,7 @@ def Automation_xl(uploaded_file):
       if cell.value == 'HP,KW,FLA':
           continue
       if 'HP' in cell.value:
+        
           load, load_type = parse_load_value_HP(cell.value)
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
@@ -733,12 +764,14 @@ def Automation_xl(uploaded_file):
               for i, value in enumerate(volt_phase_check_HP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
               continue
+        
   
       if 'MOP' or 'MOCP' in cell.value:
+         
           load, load_type = parse_load_value_MOP(cell.value)
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
-  
+        
           if load_type == 'MOP':
               for i, value in enumerate(volt_phase_check_MOP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
@@ -747,6 +780,8 @@ def Automation_xl(uploaded_file):
               for i, value in enumerate(volt_phase_check_MOP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
               continue
+             
+             
   
       if cell.value is not None:
           
@@ -754,7 +789,12 @@ def Automation_xl(uploaded_file):
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
   
-          
+          if voltage == None:
+              continue
+          if phase == None:
+              continue
+          if load_type == None:
+              continue
           if load_type == 'MCA':
               for i, value in enumerate(volt_phase_check_MCA(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
@@ -771,6 +811,13 @@ def Automation_xl(uploaded_file):
             
               print(f'Voltage = {voltage} : Phase = {phase}')
               print(volt_phase_check_MCA(load, voltage, phase))
+                
+          elif load_type != 'MCA' or 'AMPS' or 'FLA' or 'KW' or 'W':
+              continue        
+
+          else:
+              continue
+                
   WB.save(uploaded_file)   
  
 if uploaded_file is not None:
@@ -793,14 +840,14 @@ if uploaded_file is not None:
     buffer = io.BytesIO()
     WB.save(buffer)    
     st.download_button(
-        label = 'Hellz Yeah! 📥 Click to Download', 
+        label = 'Hellz Yeah! Click to Download 📥', 
         data = buffer, 
         file_name = uploaded_file.name, 
         mime= uploaded_file.type#"application/vnd.ms-excel"
         )
     st.button('No Way')
  
- 
+
 # SIDEBAR
 
 st.sidebar.header("There Will Be More Options Here Soon:")
