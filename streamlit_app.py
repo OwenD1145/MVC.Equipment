@@ -827,7 +827,7 @@ if uploaded_file is not None:
 
 # SIDEBAR
 
-st.sidebar.header("There Will Be More Options Here Soon:")
+# st.sidebar.header("There Will Be More Options Here Soon:")
 
 hide_st_style="""
             <style>
