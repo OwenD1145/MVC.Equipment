@@ -4,7 +4,7 @@ from PIL import Image
 from openpyxl import Workbook, load_workbook
 import io
 
-# image = Image.open('MVC-LogowAddress.PNG')
+image = Image.open('MVC-LogowAddress.PNG')
  
 st.set_page_config(
   page_title="Equipment Dashboard",
@@ -12,17 +12,10 @@ st.set_page_config(
   layout="wide"                 
 )
 
-# HEADER
-
-# st.header('MVC Equimpent Schedule Automation')
-
 # MAINPAGE
 
-st.title(":space_invader: MVC Equipment Schedule Automation")
+st.header(":space_invader: MVC Equipment Schedule Automation")
 st.markdown("##")
- 
-# txt = st.text_area('Text to Analyze', 
-#                    'heres some sample text')
 
 st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
 st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
@@ -36,14 +29,18 @@ ex = pd.DataFrame(
         'Equipment': ['Circulation Pump', '', 'Exhaust Fan', '', 'Fan Coil Unit', ''],
         'Load': ['1-1/2 HP', '', '3.5 FLA', '','25 MOCP', '19 MCA' ],
         'Volts': ['120', '', '120', '', '208',''],
-        '%%C': ['1', '', '1', '', '1', '']
+        '%%C': ['1', '', '1', '', '1', ''], 
+        'Conductors' : ['', '', '', '', '', '',],
+        'Conduit' : ['', '', '', '', '', '',],
+        'Switch' : ['', '', '', '', '', '',],
+        'Fuse' : ['', '', '', '', '', '',],
         }
 )
 
-st.dataframe(width = 1000,data = ex)
-
-uploaded_file = st.file_uploader("Supply Your Schedule")
+st.dataframe(width = 1500,data = ex)
  
+uploaded_file = st.file_uploader("Supply Your Schedule: Must be .XLSM file type (if working with older .XLS file please send to Owen)")
+     
 def display_xl():
   if uploaded_file is not None:
     
@@ -55,12 +52,13 @@ def display_xl():
     skiprows=1,
     usecols='A:K',
     dtype = {'VOLTS' : str, '%%C' : str, 'NOTES' : str, 'KEY' : str}
+    
     # nrows=10,    
     )
   return df
  
 def Automation_xl(uploaded_file):
-  global WB
+  global WB  
   WB = load_workbook(uploaded_file, data_only = True, read_only = False, keep_vba = True)
   WS = WB.active
   SH = WB["Equipment"]
@@ -126,7 +124,6 @@ def Automation_xl(uploaded_file):
       'something else' : ['blah']
   }
   
-  
   table_120_1_MCA = {
       '5' : ['2#12,1#12G.', '1/2"', '$T0', '---', '---'],
       '10' : ['2#12,1#12G.', '1/2"', '$T0', '---', '---'],
@@ -180,7 +177,6 @@ def Automation_xl(uploaded_file):
       '600' : ['2[3-350kCMIL, #1G]', '(2) 3"', '200/2', '600A', 'FRN-R'],
       'something else' : ['blah']
   }
-  
   
   table_120_1_HP = {
       '1/6' : ['2#12,1#12G.', '1/2"', '$T0', '---', '---'],
@@ -769,7 +765,6 @@ def Automation_xl(uploaded_file):
         except:
             pass      
              
-  
       if cell.value is not None:
         try:  
           load, load_type = parse_load_value(cell.value)
@@ -806,35 +801,32 @@ def Automation_xl(uploaded_file):
               continue
         except:
             pass  
+                
   WB.save(uploaded_file)   
  
 if uploaded_file is not None:
   file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
   file_name, file_type = uploaded_file.name.split('.')
   st.write(file_details)
-#   st.dataframe(display_xl(), width = 1500)
   if st.button('Do it for me!'):
     Automation_xl(uploaded_file)
     buffer = io.BytesIO()
     WB.save(buffer)
     df = pd.DataFrame(Automation_xl(uploaded_file))
-    # buffer = io.BytesIO()
     st.dataframe(display_xl(), width = 1500)
-    st.write("Are you happy with these results?")
-    # with pd.ExcelWriter(buffer, engine = 'openpyxl') as writer:
-    #     df.to_excel(writer, sheet_name = 'Equipment', index = False)
-    # with open(uploaded_file, "rb") as fh:
-    #     buffer = io.BytesIO(fh.read())    
+    st.write("Are you happy with these results?")   
     buffer = io.BytesIO()
     WB.save(buffer)    
     st.download_button(
         label = 'Hellz Yeah! Click to Download 📥', 
         data = buffer, 
         file_name = uploaded_file.name, 
-        mime= uploaded_file.type#"application/vnd.ms-excel"
+        mime= uploaded_file.type
         )
-    st.button('No Way')
- 
+    
+    st.text('If nothing is produced in desired cell range, please double check the formatting of LOADS/VOLTS/PHASE. (see reference table above)')  
+    st.text('If results are produced but are incorrect, please contact Owen for changes to be made.')      
+
 # SIDEBAR
 
 st.sidebar.header("There Will Be More Options Here Soon:")
@@ -849,4 +841,4 @@ hide_st_style="""
  
 st.markdown(hide_st_style, unsafe_allow_html=True)
  
- 
+
