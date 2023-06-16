@@ -3,8 +3,6 @@ import streamlit as st
 from PIL import Image
 from openpyxl import Workbook, load_workbook
 import io
-
-image = Image.open('MVC-LogowAddress.PNG')
  
 st.set_page_config(
   page_title="Equipment Dashboard",
