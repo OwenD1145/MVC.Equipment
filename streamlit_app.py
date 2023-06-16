@@ -740,7 +740,7 @@ def Automation_xl(uploaded_file):
       if cell.value == 'HP,KW,FLA':
           continue
       if 'HP' in cell.value:
-        
+        try:
           load, load_type = parse_load_value_HP(cell.value)
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
@@ -748,10 +748,12 @@ def Automation_xl(uploaded_file):
           if load_type == 'HP':
               for i, value in enumerate(volt_phase_check_HP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-              continue     
+              continue
+        except:
+            pass
   
       if 'MOP' or 'MOCP' in cell.value:
-         
+        try: 
           load, load_type = parse_load_value_MOP(cell.value)
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
@@ -763,10 +765,13 @@ def Automation_xl(uploaded_file):
           if load_type == 'MOCP':
               for i, value in enumerate(volt_phase_check_MOP(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-              continue     
+              continue
+        except:
+            pass      
+             
   
       if cell.value is not None:
-          
+        try:  
           load, load_type = parse_load_value(cell.value)
           voltage = SH[f'D{cell.row}'].value
           phase = SH[f'E{cell.row}'].value
@@ -799,7 +804,8 @@ def Automation_xl(uploaded_file):
 
           else:
               continue
-                
+        except:
+            pass  
   WB.save(uploaded_file)   
  
 if uploaded_file is not None:
