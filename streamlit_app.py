@@ -15,10 +15,11 @@ st.set_page_config(
 st.header(":space_invader: MVC Equipment Schedule Automation")
 st.markdown("##")
 
-st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
-st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
-st.text('The file path will be:')
-st.code('C:/Users/user_directory/Downloads') 
+if st.button('Read Me'):
+    st.text('Please add your personal downloads folder to Excels trusted locations to enable Macros in the produced document:') 
+    st.code('File -> Options -> Trust Center -> Trust Center Settings -> Trusted Locations -> Add New Location')
+    st.text('The file path will be:')
+    st.code('C:/Users/user_directory/Downloads')  
 
 st.text('Loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. MOP/MOCP must be listed first. Table below for example formatting:')
 ex = pd.DataFrame(
