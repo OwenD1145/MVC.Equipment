@@ -799,8 +799,14 @@ def Automation_xl(uploaded_file):
               continue
         except:
             pass  
-                
-  WB.save(uploaded_file)   
+  for cell in SH['J']:
+    if cell.value is None:
+        continue
+    if cell.value == 'PANEL':
+        continue
+    if cell.value is not None:
+        SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1, translate=True)    
+  WB.save(uploaded_file)  
  
 if uploaded_file is not None:
   file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
