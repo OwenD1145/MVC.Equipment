@@ -806,7 +806,7 @@ def Automation_xl(uploaded_file):
     if cell.value == 'PANEL':
         continue
     if cell.value is not None:
-        SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1, translate=True)    
+        SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1)    
   WB.save(uploaded_file)  
  
 if uploaded_file is not None:
