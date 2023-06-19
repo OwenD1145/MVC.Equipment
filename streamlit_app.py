@@ -3,6 +3,7 @@ import streamlit as st
 from PIL import Image
 from openpyxl import Workbook, load_workbook
 import io
+from copy import copy
  
 st.set_page_config(
   page_title="Equipment Dashboard",
