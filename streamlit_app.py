@@ -830,7 +830,8 @@ if uploaded_file is not None:
         )
     
     st.text('If nothing is produced in desired cell range, please double check the formatting of LOADS/VOLTS/PHASE. (see reference table above)')  
-    st.text('If results are produced but are incorrect, please contact Owen for changes to be made.')      
+    st.text('If results are produced but are incorrect, please contact Owen for changes to be made.')   
+    st.text('If you managed to break the code, congrats! Please send screenshot of the broken string as well as Equipment Schedule to Owen')
 
 # SIDEBAR
 
