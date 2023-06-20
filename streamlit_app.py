@@ -801,27 +801,27 @@ def Automation_xl(uploaded_file):
               continue
         except:
             pass  
-  for cell in SH['J']:
-    if cell.value is None:
-        continue
-    if cell.value == 'PANEL':
-        continue
-    if cell.value == 'FRN-R' or 'FRS-R' or 'RK1' or '---':
-        SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1, translate=True)    
+  # for cell in SH['J']:
+  #   if cell.value is None:
+  #       continue
+  #   if cell.value == 'PANEL':
+  #       continue
+  #   if cell.value == 'FRN-R' or 'FRS-R' or 'RK1' or '---':
+  #       SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1, translate=True)    
   
-  for cell in SH['I']:
-      if cell.value == 'FUSE':
-          continue
-      if cell.value is None:
-          continue
-      if 'A' in cell.value:
-          continue
-      if cell.value == '---':
-          continue
-      if 'FRN-R' or 'FRS-R' or 'RK1' in cell.value:
-          cell.border = copy(SH["J5"].border) 
-          cell.font = copy(SH["J2"].font)
-          cell.alignment = copy(SH["J2"].alignment)   
+  # for cell in SH['I']:
+  #     if cell.value == 'FUSE':
+  #         continue
+  #     if cell.value is None:
+  #         continue
+  #     if 'A' in cell.value:
+  #         continue
+  #     if cell.value == '---':
+  #         continue
+  #     if 'FRN-R' or 'FRS-R' or 'RK1' in cell.value:
+  #         cell.border = copy(SH["J5"].border) 
+  #         cell.font = copy(SH["J2"].font)
+  #         cell.alignment = copy(SH["J2"].alignment)   
   WB.save(uploaded_file)  
  
 if uploaded_file is not None:
