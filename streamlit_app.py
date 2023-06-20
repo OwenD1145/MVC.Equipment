@@ -816,6 +816,8 @@ def Automation_xl(uploaded_file):
           continue
       if 'A' in cell.value:
           continue
+      if cell.value == '---'
+          continue
       if 'FRN-R' or 'FRS-R' or 'RK1' in cell.value:
           cell.border = copy(SH["J5"].border) 
           cell.font = copy(SH["J2"].font)
