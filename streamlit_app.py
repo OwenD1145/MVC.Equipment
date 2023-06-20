@@ -806,7 +806,7 @@ def Automation_xl(uploaded_file):
         continue
     if cell.value == 'PANEL':
         continue
-    if cell.value is not None:
+    if 'FRN-R' or 'FRS-R' or 'RK1' or '---' in cell.value:
         SH.move_range(f'J{cell.row}:J{cell.row}', rows=+ 1, cols= -1, translate=True)    
   
   for cell in SH['I']:
