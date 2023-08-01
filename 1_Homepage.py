@@ -8,7 +8,7 @@ st.set_page_config(
 
 # MAINPAGE
 
-st.header(":space_invader: MVC Equipment Schedule Automation")
+st.header("MVC Tools of the Trade")
 st.markdown("##")
 
 
