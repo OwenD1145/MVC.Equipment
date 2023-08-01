@@ -1,5 +1,7 @@
+import streamlit as st
+
 st.set_page_config(
-  page_title="Equipment Dashboard",
+  page_title="MVC Tools - Homepage",
   page_icon=":bar_chart:",
   layout="wide"                 
 )
