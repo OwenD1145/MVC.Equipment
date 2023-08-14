@@ -3,7 +3,7 @@ import pandas as pd
 
 
 st.set_page_config(
-  page_title="Equipment Dashboard",
+  page_title="Detail Notes",
   page_icon=":bar_chart:",
   layout="wide"                 
 )
