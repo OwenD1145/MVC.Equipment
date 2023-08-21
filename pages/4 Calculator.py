@@ -31,3 +31,7 @@ def calculator():
   st.success('Answer = ' + str(ans))
   return ans
 
+if st.button('Calculate'):
+  calculate()
+
+
