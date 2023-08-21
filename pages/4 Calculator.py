@@ -13,25 +13,28 @@ CAtype = st.selectbox('Select Desired Calculator',
 if CAtype == 'VA Calculator':
   num1 = st.number_input(label = 'Load')
 
-  operation = st.radio('Select an Operation to Perform:',
+  operation1 = st.radio('What is your Load Type?:',
+                     ('FLA','MCA'))
+  
+  operation2 = st.radio('Select an Operation to Perform:',
                      ('120/1','120/3','208/1','208/3','277/1','277/3','480/1','480/3'))
 
   def VAcalculator():
-    if operation == '120/1':
+    if operation2 == '120/1':
       ans = round((num1 * 120), 2)
-    elif operation == '120/3':
+    elif operation2 == '120/3':
       ans = round((num1 * 208), 2)
-    elif operation == '208/1':
+    elif operation2 == '208/1':
       ans = round((num1 * 208), 2) 
-    elif operation == '208/3':
+    elif operation2 == '208/3':
       ans = round((num1 * 360), 2)  
-    elif operation == '277/1':
+    elif operation2 == '277/1':
       ans = round((num1 * 277), 2) 
-    elif operation == '277/3':
+    elif operation2 == '277/3':
       ans = round((num1 * 480), 2)                     
-    elif operation == '480/1':
+    elif operation2 == '480/1':
       ans = round((num1 * 480), 2)                   
-    elif operation == '480/3':
+    elif operation2 == '480/3':
       ans = round((num1 * 831), 2) 
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
