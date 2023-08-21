@@ -35,3 +35,22 @@ if CAtype == 'VA Calculator':
   if st.button('Calculate'):
     VAcalculator()
 
+if CAtype == 'HP Calculator':
+  num1 = st.number_input(label = 'Load')
+
+  operation = st.radio('Select an Operation to Perform:',
+                     ('Mechanic/Hydraulic','Electric'))
+
+  def HPcalculator():
+    if operation == 'Mechanic/Hydraulic':
+      ans = round((num1 * 745.699872), 2)
+    elif operation == 'Electric':
+      ans = round((num1 * 746), 2)
+    else:
+      st.warning("Division by 0 error. Please enter a non-zero number.")
+      ans = "Not defined"
+    st.success('Total Motor Load = ' + str(ans) + ' Watts')
+ 
+  if st.button('Calculate'):
+    HPcalculator()       
+
