@@ -29,5 +29,5 @@ def calculator():
     st.warning("Division by 0 error. Please enter a non-zero number.")
     ans = "Not defined"
   return ans
-st.success('Answer = ' + ans)
+st.success('Answer = ' + str(ans))
 
