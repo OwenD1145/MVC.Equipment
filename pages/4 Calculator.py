@@ -32,6 +32,6 @@ def calculator():
   return ans
 
 if st.button('Calculate'):
-  calculate()
+  calculate(num1)
 
 
