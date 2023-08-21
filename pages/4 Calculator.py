@@ -30,7 +30,7 @@ if CAtype == 'VA Calculator':
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
       ans = "Not defined"
-    st.success('Answer = ' + str(ans))
+    st.success('VA = ' + str(ans))
  
   if st.button('Calculate'):
     VAcalculator()
