@@ -3,7 +3,7 @@ import streamlit as st
 st.title("VA Calculator")
 st.write("---")
 CAtype = st.selectbox('Select Desired Calculator',
-            ('VA Calculator', 'HP Calculator'))
+            ('None','VA Calculator', 'HP Calculator'))
 if CAtype == 'VA Calculator':
   num1 = st.number_input(label = 'Load')
 
