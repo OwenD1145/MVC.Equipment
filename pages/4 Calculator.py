@@ -4,7 +4,7 @@ st.title("VA Calculator")
 st.write("---")
 CAtype = st.dropdown(label = 'Select Desirec Calculator',
             'VA Calculator', 'HP Calculator')
-if CAtype == 'VA Calculator'
+if CAtype == 'VA Calculator':
   num1 = st.number_input(label = 'Load')
 
   operation = st.radio('Select an Operation to Perform:',
