@@ -32,6 +32,6 @@ def calculator():
  
 
 if st.button('Calculate'):
-  calculator(num1)
+  calculator()
 
 
