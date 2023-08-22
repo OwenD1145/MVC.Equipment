@@ -21,9 +21,9 @@ hide_st_style="""
             """
 
 
-def displayPDF(pages/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf):
+def displayPDF(2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf):
     # Opening file from file path
-    with open((pages/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf), "rb") as f:
+    with open((2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf), "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
     # Embedding PDF in HTML
