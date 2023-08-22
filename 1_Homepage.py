@@ -1,5 +1,5 @@
 import streamlit as st
-
+import base64
 st.set_page_config(
   page_title="MVC Tools - Homepage",
   page_icon=":bar_chart:",
