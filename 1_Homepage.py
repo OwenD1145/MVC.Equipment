@@ -32,5 +32,5 @@ def displayPDF(file):
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-displayPDF('2019_dbc.pdf')
+displayPDF("2019_dbc.pdf")
 # st.markdown(hide_st_style, unsafe_allow_html=True)
