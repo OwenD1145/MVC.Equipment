@@ -21,11 +21,9 @@ hide_st_style="""
             """
 
 
-def displayPDF(MVC.Equipment/pages
-/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf):
+def displayPDF():
     # Opening file from file path
-    with open(MVC.Equipment/pages
-/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf, "rb") as f:
+    with open('MVC.Equipment/pages/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf', "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
     # Embedding PDF in HTML
@@ -34,5 +32,5 @@ def displayPDF(MVC.Equipment/pages
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-displayPDF('2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf')
+displayPDF('MVC.Equipment/pages/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf')
 st.markdown(hide_st_style, unsafe_allow_html=True)
