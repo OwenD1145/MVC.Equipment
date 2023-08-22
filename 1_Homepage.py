@@ -21,19 +21,16 @@ import base64
 #             </style>
 #             """
 
-
 def displayPDF(file):
     # Opening file from file path
-    # pdf_path = path("2019_dbc.pdf")
     with open(file, "rb") as f:
-        base64_pdf = base64.b64encode(file.read_bytes()).decode("utf-8")
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
     # Embedding PDF in HTML
-    pdf_display = f"""
-        <iframe src="data:application/pdf;base64,{base64_pdf}" width="800px" height="2100px" type="application/pdf"></iframe>
-    """
-                  
+    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
 
 displayPDF('2019_dbc.pdf')
-st.markdown(hide_st_style, unsafe_allow_html=True)
+# st.markdown(hide_st_style, unsafe_allow_html=True)
