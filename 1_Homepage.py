@@ -32,5 +32,5 @@ def displayPDF():
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-displayPDF('MVC.Equipment/pages/2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf')
+displayPDF()
 st.markdown(hide_st_style, unsafe_allow_html=True)
