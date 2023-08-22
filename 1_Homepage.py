@@ -12,13 +12,13 @@ st.header("MVC Tools of the Trade")
 st.markdown("##")
 
 
-hide_st_style="""
-            <style>
-            #MainMenu {visibility:hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
+# hide_st_style="""
+#             <style>
+#             #MainMenu {visibility:hidden;}
+#             footer {visibility: hidden;}
+#             header {visibility: hidden;}
+#             </style>
+#             """
 
 
 def displayPDF(file):
