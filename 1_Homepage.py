@@ -21,9 +21,9 @@ hide_st_style="""
             """
 
 
-def displayPDF(file):
+def displayPDF():
     # Opening file from file path
-    with open('2021 - Xcel-Energy-Standard-For-Electric-Installation-and-Use.pdf', "rb") as f:
+    with open(file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
     # Embedding PDF in HTML
