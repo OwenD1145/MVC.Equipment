@@ -1,15 +1,15 @@
 import streamlit as st
 import base64
-st.set_page_config(
-  page_title="MVC Tools - Homepage",
-  page_icon=":bar_chart:",
-  layout="wide"                 
-)
+# st.set_page_config(
+#   page_title="MVC Tools - Homepage",
+#   page_icon=":bar_chart:",
+#   layout="wide"                 
+# )
 
-# MAINPAGE
+# # MAINPAGE
 
-st.header("MVC Tools of the Trade")
-st.markdown("##")
+# st.header("MVC Tools of the Trade")
+# st.markdown("##")
 
 
 # hide_st_style="""
