@@ -20,8 +20,10 @@ if CAtype == 'VA Calculator':
                      ('120/1','120/3','208/1','208/3','277/1','277/3','480/1','480/3'))
 
   def VAcalculator():
-    if operation2 == '120/1':
-      ans = round((num1 * 120), 2)
+    if operation1 == 'FLA' and operation2 == '120/1':
+      ans = round(((num1 * 1.25) * 120), 2)
+    elif operation1 == 'MCA' and operation2 == '120/1':
+      ans = round((num1 * 120), 2)  
     elif operation2 == '120/3':
       ans = round((num1 * 208), 2)
     elif operation2 == '208/1':
