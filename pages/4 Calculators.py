@@ -25,19 +25,33 @@ if CAtype == 'VA Calculator':
       ans = round(((num1 * 1.25) * 120), 2)
     elif operation1 == 'MCA' and operation2 == '120/1':
       ans = round((num1 * 120), 2)  
-    elif operation2 == '120/3':
+    elif operation1 == 'FLA' and operation2 == '120/3':
+      ans = round((num1 * 1.25) * 208), 2)
+    elif operation1 == 'MCA' and operation2 == '120/3':
       ans = round((num1 * 208), 2)
-    elif operation2 == '208/1':
+    elif operation1 == 'FLA' and operation2 == '208/1':
+      ans = round((num1 * 1.25) * 208), 2) 
+    elif operation1 == 'MCA' and operation2 == '208/1':
       ans = round((num1 * 208), 2) 
-    elif operation2 == '208/3':
-      ans = round((num1 * 360), 2)  
-    elif operation2 == '277/1':
+    elif operation1 == 'FLA' and operation2 == '208/3':
+      ans = round((num1 * 1.25) * 360), 2)  
+    elif operation1 == 'MCA' and operation2 == '208/3':
+      ans = round((num1 * 360), 2)
+    elif operation1 == 'FLA' and operation2 == '277/1':
+      ans = round((num1 * 1.25) * 277), 2) 
+    elif operation1 == 'MCA' and operation2 == '277/1':
       ans = round((num1 * 277), 2) 
-    elif operation2 == '277/3':
-      ans = round((num1 * 480), 2)                     
-    elif operation2 == '480/1':
-      ans = round((num1 * 480), 2)                   
-    elif operation2 == '480/3':
+    elif operation1 == 'FLA' and operation2 == '277/3':
+      ans = round((num1 * 1.25) * 480), 2)                     
+    elif operation1 == 'MCA' and operation2 == '277/3':
+      ans = round((num1 * 480), 2)   
+    elif operation1 == 'FLA' and operation2 == '480/1':
+      ans = round((num1 * 1.25) * 480), 2)                   
+    elif operation1 == 'MCA' and operation2 == '480/1':
+      ans = round((num1 * 480), 2)
+    elif operation1 == 'FLA' and operation2 == '480/3':
+      ans = round((num1 * 1.25) * 831), 2) 
+    elif operation1 == 'MCA' and operation2 == '480/3':
       ans = round((num1 * 831), 2) 
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
