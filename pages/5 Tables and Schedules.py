@@ -28,7 +28,7 @@ if CAtype == 'Master Feeder - AL':
   
   st.dataframe(width = 2000, data = ex)
 if CAtype == 'Master Feeder - CU':
-  st.text('Master Feeder - AL')
+  st.text('Master Feeder - CU')
   ex = pd.DataFrame(
       {
           'Ampacity': ['3000/W', '2000/W', '1600/W', '1200/W', '1000/W', '800/W', '750/W', '600/W', '500/W', '400/W', '350/W', '300/W', '250/W', '225/W', '200/W', '175/W', '150/W', '125/W', '100/W', '90/W', '80/W', '70/W', '60/W', '50/W', '40/W', '30/W', '20/W'],
