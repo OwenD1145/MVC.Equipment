@@ -18,17 +18,13 @@ if CAtype == 'VA Calculator':
                      ('FLA','MCA'))
   
   operation2 = st.radio('Select an Operation to Perform:',
-                     ('120/1','120/3','208/1','208/3','277/1','277/3','480/1','480/3'))
+                     ('120/1','208/1','208/3','277/1','480/1','480/3'))
 
   def VAcalculator():
     if operation1 == 'FLA' and operation2 == '120/1':
       ans = round(((num1 * 1.25) * 120), 2)
     elif operation1 == 'MCA' and operation2 == '120/1':
       ans = round((num1 * 120), 2)  
-    elif operation1 == 'FLA' and operation2 == '120/3':
-      ans = round((num1 * 1.25) * 208), 2)
-    elif operation1 == 'MCA' and operation2 == '120/3':
-      ans = round((num1 * 208), 2)
     elif operation1 == 'FLA' and operation2 == '208/1':
       ans = round((num1 * 1.25) * 208), 2) 
     elif operation1 == 'MCA' and operation2 == '208/1':
@@ -40,11 +36,7 @@ if CAtype == 'VA Calculator':
     elif operation1 == 'FLA' and operation2 == '277/1':
       ans = round((num1 * 1.25) * 277), 2) 
     elif operation1 == 'MCA' and operation2 == '277/1':
-      ans = round((num1 * 277), 2) 
-    elif operation1 == 'FLA' and operation2 == '277/3':
-      ans = round((num1 * 1.25) * 480), 2)                     
-    elif operation1 == 'MCA' and operation2 == '277/3':
-      ans = round((num1 * 480), 2)   
+      ans = round((num1 * 277), 2)   
     elif operation1 == 'FLA' and operation2 == '480/1':
       ans = round((num1 * 1.25) * 480), 2)                   
     elif operation1 == 'MCA' and operation2 == '480/1':
