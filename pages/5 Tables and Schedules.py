@@ -1,7 +1,16 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+  page_title="Tables and Schedules",
+  page_icon=":bar_chart:",
+  layout="wide"                 
+)
 
+# MAINPAGE
+
+st.header(":space_invader: Tables and Schedules")
+st.markdown("##")
 
 st.text('Master Feeder - AL')
 ex = pd.DataFrame(
