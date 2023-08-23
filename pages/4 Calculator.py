@@ -6,7 +6,7 @@ st.set_page_config(
   layout="wide"                 
 )
 
-st.title("Calculator")
+st.title(":space_invader: Calculators")
 st.write("---")
 CAtype = st.selectbox('Select Desired Calculator',
             ('None','VA Calculator', 'HP Calculator'))
