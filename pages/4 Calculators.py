@@ -7,7 +7,8 @@ st.set_page_config(
 )
 
 st.title(":space_invader: Calculators")
-st.write("---")
+st.markdown('###')
+# st.write("---")
 CAtype = st.selectbox('Select Desired Calculator',
             ('None','VA Calculator', 'HP Calculator'))
 if CAtype == 'VA Calculator':
