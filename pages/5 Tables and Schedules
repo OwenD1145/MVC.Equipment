@@ -1,0 +1,21 @@
+import streamlit as st
+
+
+
+
+st.text('Loads must be seperated by a space between the value and the load type. Horsepower must be written out in fractional form. MOP/MOCP must be listed first. Table below for example formatting:')
+ex = pd.DataFrame(
+    {
+        'Key': ['CP', '1', 'EF', '2', 'FCU', '1'],
+        'Equipment': ['Circulation Pump', '', 'Exhaust Fan', '', 'Fan Coil Unit', ''],
+        'Load': ['1-1/2 HP', '', '3.5 FLA', '','25 MOCP', '19 MCA' ],
+        'Volts': ['120', '', '120', '', '208',''],
+        '%%C': ['1', '', '1', '', '1', ''], 
+        'Conductors' : ['', '', '', '', '', '',],
+        'Conduit' : ['', '', '', '', '', '',],
+        'Switch' : ['', '', '', '', '', '',],
+        'Fuse' : ['', '', '', '', '', '',],
+        }
+)
+
+st.dataframe(width = 1500,data = ex)
