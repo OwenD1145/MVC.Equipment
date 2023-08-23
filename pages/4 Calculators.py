@@ -26,23 +26,23 @@ if CAtype == 'VA Calculator':
     elif operation1 == 'MCA' and operation2 == '120/1':
       ans = round((num1 * 120), 2)  
     elif operation1 == 'FLA' and operation2 == '208/1':
-      ans = round((num1 * 1.25) * 208), 2) 
+      ans = round(((num1 * 1.25) * 208), 2) 
     elif operation1 == 'MCA' and operation2 == '208/1':
       ans = round((num1 * 208), 2) 
     elif operation1 == 'FLA' and operation2 == '208/3':
-      ans = round((num1 * 1.25) * 360), 2)  
+      ans = round(((num1 * 1.25) * 360), 2)  
     elif operation1 == 'MCA' and operation2 == '208/3':
       ans = round((num1 * 360), 2)
     elif operation1 == 'FLA' and operation2 == '277/1':
-      ans = round((num1 * 1.25) * 277), 2) 
+      ans = round(((num1 * 1.25) * 277), 2) 
     elif operation1 == 'MCA' and operation2 == '277/1':
       ans = round((num1 * 277), 2)   
     elif operation1 == 'FLA' and operation2 == '480/1':
-      ans = round((num1 * 1.25) * 480), 2)                   
+      ans = round(((num1 * 1.25) * 480), 2)                   
     elif operation1 == 'MCA' and operation2 == '480/1':
       ans = round((num1 * 480), 2)
     elif operation1 == 'FLA' and operation2 == '480/3':
-      ans = round((num1 * 1.25) * 831), 2) 
+      ans = round(((num1 * 1.25) * 831), 2) 
     elif operation1 == 'MCA' and operation2 == '480/3':
       ans = round((num1 * 831), 2) 
     else:
