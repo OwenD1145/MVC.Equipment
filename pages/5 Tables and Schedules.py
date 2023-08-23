@@ -15,5 +15,14 @@ ex = pd.DataFrame(
         }
 )
 
-st.dataframe(width = 1500,data = ex)
+st.dataframe(height = 1500, width = 1500, data = ex)
 
+hide_st_style="""
+            <style>
+            #MainMenu {visibility:hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+ 
+st.markdown(hide_st_style, unsafe_allow_html=True)
