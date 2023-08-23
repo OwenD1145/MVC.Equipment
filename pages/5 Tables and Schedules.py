@@ -15,7 +15,7 @@ ex = pd.DataFrame(
         }
 )
 
-st.dataframe(height = 1500, width = 1500, data = ex)
+st.dataframe(width = 1500, data = ex)
 
 hide_st_style="""
             <style>
