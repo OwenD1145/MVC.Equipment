@@ -27,7 +27,20 @@ if CAtype == 'Master Feeder - AL':
   )
   
   st.dataframe(width = 2000, data = ex)
-
+if CAtype == 'Master Feeder - CU':
+  st.text('Master Feeder - AL')
+  ex = pd.DataFrame(
+      {
+          'Ampacity': ['3000/W', '2000/W', '1600/W', '1200/W', '1000/W', '800/W', '750/W', '600/W', '500/W', '400/W', '350/W', '300/W', '250/W', '225/W', '200/W', '175/W', '150/W', '125/W', '100/W', '90/W', '80/W', '70/W', '60/W', '50/W', '40/W', '30/W', '20/W'],
+          'Conductor': ['8[W-500kcmil, 400kcmilG, 3-1/2"C], 750kcmilG, 4"C]', '6[W-400kcmil, 250kcmilG, 3"C]', '5[W-400kcmil, 4/0G, 3"C]', '4[W-350kcmil, 3/0G, 3"C]', 
+                        '3[W-400kcmil, 2/0G, 3"C]', '3[W-300kcmil, 1/0G, 3"C]', '3[W-250kcmil, 1/0G, 3"C]', '2[W-350kcmil, #1G, 3"C]', 
+                        '2[W-250kcmil, #2G, 3"C]', '2[W-3/0, #3G, 2"C]', '2[W-2/0, #3G, 2"C]', 'W-350kcmil, #4G, 3"C', 
+                        'W-250kcmil, #4G, 3"C', 'W-4/0,#4G,2"C', 'W-3/0, #6G, 2"C', 'W-2/0, #6G, 2"C', 'W- 1/0, #6G, 2"C', 'W- 1/0, #6G, 2"C', 'W#1, #6G, 1-1/2"C',
+                        'W#2, #8G, 1-1/4"C', 'W#3, #8G, 1-1/4"C', 'W#4, #8G, 1-1/4"C', 'W#4, #8G, 1-1/4"C', 'W#6, #10G, 1"C', 'W#8, #10G, 1"C', 'W#10, #10G, 3/4"C', 'W#12, #12G, 3/4"C'],
+          }
+  )
+  
+  st.dataframe(width = 2000, data = ex)
 hide_st_style="""
             <style>
             #MainMenu {visibility:hidden;}
