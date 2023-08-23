@@ -29,7 +29,7 @@ EV = '''
 	'''
 
 if option == 'EV-Charging':
-	st.code(code)
+	st.code(EV)
 
 
 	
