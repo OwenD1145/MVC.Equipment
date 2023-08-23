@@ -26,7 +26,7 @@ if CAtype == 'Master Feeder - AL':
           }
   )
   
-  st.dataframe(width = 1500, data = ex)
+  st.dataframe(width = 2000, data = ex)
 
 hide_st_style="""
             <style>
