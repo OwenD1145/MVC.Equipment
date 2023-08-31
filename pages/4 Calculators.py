@@ -60,16 +60,16 @@ with tab1:
 # if CAtype == 'HP Calculator':
 with tab2:
   st.header('HP Calculator')
-  num1 = st.number_input(label = 'Load')
+  num2 = st.number_input(label = 'Load')
 
   operation = st.radio('Select an Operation to Perform:',
                      ('Mechanic/Hydraulic','Electric'))
 
   def HPcalculator():
     if operation == 'Mechanic/Hydraulic':
-      ans = round((num1 * 745.699872), 2)
+      ans = round((num2 * 745.699872), 2)
     elif operation == 'Electric':
-      ans = round((num1 * 746), 2)
+      ans = round((num2 * 746), 2)
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
       ans = "Not defined"
