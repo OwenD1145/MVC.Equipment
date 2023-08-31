@@ -16,7 +16,7 @@ tab1, tab2 = st.tabs(["VA Calculator", "HP Calculator"])
 
 with tab1:
   st.header('VA Calculator')
-  num1 = st.number_input(label = 'Load')
+  num1 = st.number_input(label = 'Load', key = "<VA>")
 
   operation1 = st.radio('What is your Load Type?:',
                      ('FLA','MCA'))
@@ -60,7 +60,7 @@ with tab1:
 # if CAtype == 'HP Calculator':
 with tab2:
   st.header('HP Calculator')
-  num2 = st.number_input(label = 'Load')
+  num2 = st.number_input(label = 'Load', key = "<HP>")
 
   operation = st.radio('Select an Operation to Perform:',
                      ('Mechanic/Hydraulic','Electric'))
