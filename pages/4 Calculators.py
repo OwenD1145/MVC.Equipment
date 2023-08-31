@@ -9,9 +9,13 @@ st.set_page_config(
 st.title(":space_invader: Calculators")
 st.markdown('###')
 # st.write("---")
-CAtype = st.selectbox('Select Desired Calculator',
-            ('None','VA Calculator', 'HP Calculator'))
-if CAtype == 'VA Calculator':
+# CAtype = st.selectbox('Select Desired Calculator',
+#             ('None','VA Calculator', 'HP Calculator'))
+# if CAtype == 'VA Calculator':
+tab1, tab2 = st.tabs('VA Calculator', 'HP Calculator')
+
+with tab1:
+  st.header('VA Calculator')
   num1 = st.number_input(label = 'Load')
 
   operation1 = st.radio('What is your Load Type?:',
@@ -53,7 +57,9 @@ if CAtype == 'VA Calculator':
   if st.button('Calculate'):
     VAcalculator()
 
-if CAtype == 'HP Calculator':
+# if CAtype == 'HP Calculator':
+with tab2:
+  st.header('HP Calculator')
   num1 = st.number_input(label = 'Load')
 
   operation = st.radio('Select an Operation to Perform:',
