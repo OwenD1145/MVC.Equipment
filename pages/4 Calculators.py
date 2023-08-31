@@ -12,7 +12,7 @@ st.markdown('###')
 # CAtype = st.selectbox('Select Desired Calculator',
 #             ('None','VA Calculator', 'HP Calculator'))
 # if CAtype == 'VA Calculator':
-tab1, tab2 = st.tabs('tab1', 'tab2')
+tab1, tab2 = st.tabs(["VA Calculator", "HP Calculator"])
 
 with tab1:
   st.header('VA Calculator')
