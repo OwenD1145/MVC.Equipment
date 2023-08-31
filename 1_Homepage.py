@@ -9,8 +9,13 @@ st.set_page_config(
 
 # MAINPAGE
 
-st.header("MVC Tools", divider = "rainbow")
+st.header("MVC Tools")
 st.markdown("##")
+
+col1, col2 = st.col(2)
+col1.write('Things I forget')
+col2.write('Here they are')
+
 
 hide_st_style="""
             <style>
