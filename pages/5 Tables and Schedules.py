@@ -26,7 +26,7 @@ if CAtype == 'Master Feeder - AL':
           }
   )
   
-  st.dataframe(width = 2000, data = ex)
+  st.table(width = 2000, data = ex)
 if CAtype == 'Master Feeder - CU':
   st.text('Master Feeder - CU')
   ex = pd.DataFrame(
@@ -40,7 +40,7 @@ if CAtype == 'Master Feeder - CU':
           }
   )
   
-  st.dataframe(width = 2000, data = ex)
+  st.table(width = 2000, data = ex)
 hide_st_style="""
             <style>
             #MainMenu {visibility:hidden;}
