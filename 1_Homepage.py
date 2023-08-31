@@ -12,7 +12,7 @@ st.set_page_config(
 st.header("MVC Tools")
 st.markdown("##")
 
-col1, col2 = st.col(2)
+col1, col2 = st.columns(2)
 col1.write('Things I forget')
 col2.write('Here they are')
 
