@@ -9,7 +9,7 @@ st.set_page_config(
 
 # MAINPAGE
 
-st.header("MVC Tools of the Trade")
+st.header("MVC Tools", divider = "rainbow")
 st.markdown("##")
 
 hide_st_style="""
