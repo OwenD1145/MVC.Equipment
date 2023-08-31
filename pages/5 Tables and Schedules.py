@@ -26,7 +26,7 @@ if CAtype == 'Master Feeder - AL':
           }
   )
   
-  st.table(width = 2000, data = ex)
+  st.table(ex)
 if CAtype == 'Master Feeder - CU':
   st.text('Master Feeder - CU')
   ex = pd.DataFrame(
