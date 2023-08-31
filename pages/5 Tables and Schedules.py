@@ -40,7 +40,7 @@ if CAtype == 'Master Feeder - CU':
           }
   )
   
-  st.table(width = 2000, data = ex)
+  st.table(ex)
 hide_st_style="""
             <style>
             #MainMenu {visibility:hidden;}
