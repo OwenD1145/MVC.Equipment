@@ -54,7 +54,7 @@ with tab1:
       ans = "Not defined"
     st.success('VA = ' + str(ans))
  
-  if st.button('Calculate', key = "<VA>"):
+  if st.button('Calculate', key = "<VAC>"):
     VAcalculator()
 
 # if CAtype == 'HP Calculator':
@@ -75,6 +75,6 @@ with tab2:
       ans = "Not defined"
     st.success('Total Motor Load = ' + str(ans) + ' Watts')
  
-  if st.button('Calculate', key = "<HP>"):
+  if st.button('Calculate', key = "<HPC>"):
     HPcalculator()       
 
