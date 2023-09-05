@@ -25,9 +25,6 @@ with tab1:
                      ('120/1','208/1','208/3','277/1','480/1','480/3'))
 
   def VAcalculator():
-    global ans
-    global ans1
-    global ans3
     if operation1 == 'FLA' and operation2 == '120/1':
       ans = round(((num1 * 1.25) * 120), 2)
       ans1 = round((ans / 2), 2)
