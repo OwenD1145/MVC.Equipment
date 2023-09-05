@@ -64,6 +64,7 @@ with tab1:
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
       ans = "Not defined"
+    
     if operation2 == '120/1' or '208/1' or '277/1' or '480/1':
       st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
     if operation2 == '208/3' or '480/3':
