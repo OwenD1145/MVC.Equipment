@@ -25,6 +25,9 @@ with tab1:
                      ('120/1','208/1','208/3','277/1','480/1','480/3'))
 
   def VAcalculator():
+    global ans
+    global ans1
+    global ans3
     if operation1 == 'FLA' and operation2 == '120/1':
       ans = round(((num1 * 1.25) * 120), 2)
       ans1 = round((ans / 2), 2)
@@ -64,14 +67,17 @@ with tab1:
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
       ans = "Not defined"
-    if operation2 == '120/1' or '208/1' or '277/1' or '480/1':
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
-    if operation2 == '208/3' or '480/3':
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
+    # if operation2 == '120/1' or '208/1' or '277/1' or '480/1':
+    #   st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+    # if operation2 == '208/3' or '480/3':
+    #   st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
  
   if st.button('Calculate', key = "<VAC>"):
     VAcalculator()
-
+      if operation2 == '120/1' or '208/1' or '277/1' or '480/1':
+        st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      if operation2 == '208/3' or '480/3':
+        st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3)) 
 # if CAtype == 'HP Calculator':
 with tab2:
   st.header('HP Calculator')
