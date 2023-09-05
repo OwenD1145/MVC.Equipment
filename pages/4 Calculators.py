@@ -28,51 +28,51 @@ with tab1:
     if operation1 == 'FLA' and operation2 == '120/1':
       ans = round(((num1 * 1.25) * 120), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'MCA' and operation2 == '120/1':
       ans = round((num1 * 120), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'FLA' and operation2 == '208/1':
       ans = round(((num1 * 1.25) * 208), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'MCA' and operation2 == '208/1':
       ans = round((num1 * 208), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'FLA' and operation2 == '208/3':
       ans = round(((num1 * 1.25) * 360), 2)
       ans3 = round((ans / 3), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans3))  
     elif operation1 == 'MCA' and operation2 == '208/3':
       ans = round((num1 * 360), 2)
       ans3 = round((ans / 3), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans3))  
     elif operation1 == 'FLA' and operation2 == '277/1':
       ans = round(((num1 * 1.25) * 277), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'MCA' and operation2 == '277/1':
       ans = round((num1 * 277), 2)   
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'FLA' and operation2 == '480/1':
       ans = round(((num1 * 1.25) * 480), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'MCA' and operation2 == '480/1':
       ans = round((num1 * 480), 2)
       ans1 = round((ans / 2), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans1))
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans1))
     elif operation1 == 'FLA' and operation2 == '480/3':
       ans = round(((num1 * 1.25) * 831), 2)
       ans3 = round((ans / 3), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans3))  
     elif operation1 == 'MCA' and operation2 == '480/3':
       ans = round((num1 * 831), 2)
       ans3 = round((ans / 3), 2)
-      st.success('VA = ' + str(ans) + '  W/ph = ' + str(ans3))  
+      st.success('VA = ' + str(ans) + '      W/ph = ' + str(ans3))  
     else:
       st.warning("Division by 0 error. Please enter a non-zero number.")
       ans = "Not defined"
