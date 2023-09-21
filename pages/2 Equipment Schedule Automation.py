@@ -812,11 +812,11 @@ def Automation_xl(uploaded_file):
           if load_type == 'KW':
               for i, value in enumerate(volt_phase_check_KW(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-               continue
+              continue 
           if load_type == 'W':
               for i, value in enumerate(volt_phase_check_WATTS(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-               continue
+              continue
        except:
         pass
          
