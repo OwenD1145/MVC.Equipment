@@ -748,6 +748,16 @@ def Automation_xl(uploaded_file):
       print(f'load = {load} : type = {load_type}')
       
       return str(load), load_type
+
+  def parse_load_value_KW(load_value):
+      
+      trimmed_load_value = load_value.strip()
+      
+      load, load_type = trimmed_load_value.split(' ')
+      
+      print(f'load = {load} : type = {load_type}')
+      
+      return float(load), load_type
   
   for cell in SH['C']:
   
@@ -794,8 +804,22 @@ def Automation_xl(uploaded_file):
               continue
         except:
             pass 
+      if 'W' or 'KW' in cell.value:
+       try: 
+          load, load_type = parse_load_value_KW(cell.value)
+          voltage = SH[f'D{cell.row}'].value
+          phase = SH[f'E{cell.row}'].value
+          if load_type == 'KW':
+              for i, value in enumerate(volt_phase_check_KW(load, voltage, phase)):
+                  SH.cell(column=i+6, row=cell.row, value=value)
+               continue
+          if load_type == 'W':
+              for i, value in enumerate(volt_phase_check_WATTS(load, voltage, phase)):
+                  SH.cell(column=i+6, row=cell.row, value=value)
+               continue
+       except:
+        pass
          
-             
       if cell.value is not None:
         try:  
           load, load_type = parse_load_value(cell.value)
@@ -815,12 +839,12 @@ def Automation_xl(uploaded_file):
           if load_type == 'AMPS' or 'FLA':
               for i, value in enumerate(volt_phase_check_AMPS(load, voltage, phase)):
                   SH.cell(column=i+6, row=cell.row, value=value)
-          if load_type == 'KW':
-              for i, value in enumerate(volt_phase_check_KW(load, voltage, phase)):
-                  SH.cell(column=i+6, row=cell.row, value=value)
-          if load_type == 'W':
-              for i, value in enumerate(volt_phase_check_WATTS(load, voltage, phase)):
-                  SH.cell(column=i+6, row=cell.row, value=value) 
+          # if load_type == 'KW':
+          #     for i, value in enumerate(volt_phase_check_KW(load, voltage, phase)):
+          #         SH.cell(column=i+6, row=cell.row, value=value)
+          # if load_type == 'W':
+          #     for i, value in enumerate(volt_phase_check_WATTS(load, voltage, phase)):
+          #         SH.cell(column=i+6, row=cell.row, value=value) 
             
               print(f'Voltage = {voltage} : Phase = {phase}')
               print(volt_phase_check_MCA(load, voltage, phase))
