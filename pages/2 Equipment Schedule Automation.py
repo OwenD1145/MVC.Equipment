@@ -491,6 +491,30 @@ def Automation_xl(uploaded_file):
               hp = 'not found'
       print(f'hp = {hp}')
       return hp
+
+  def EQ_480_3_KW(number): 
+      
+      hp = ''
+      print(f'number = {number}')
+      match number:
+          case num if 0 < num <= 5:
+              hp = '5'
+          case num if 5 < num <= 7.5:
+              hp = '7.5'
+          case num if 7.5 < num <= 10:
+              hp = '10'
+          case num if 10 < num <= 15:
+              hp = '15'
+          case num if 15 < num <= 20:
+              hp = '20'
+          case num if 20 < num <= 25:
+              hp = '25'
+          case num if 25 < num <= 30:
+              hp = '30'
+          case _:
+              hp = 'not found'
+      print(f'hp = {hp}')
+      return hp
   
   def EQ_208_1_MCA(number): 
       
@@ -654,6 +678,9 @@ def Automation_xl(uploaded_file):
       if voltage == 277 and phase == 1:
           val = EQ_277_1_KW(KW)
           size = table_electric_heaters_277_1_KW[val]   
+      if voltage == 480 and phase == 3:
+          val = EQ_480_3_KW(load)
+          size = table_electric_heaters_480_3_KW[val] 
       
       return size
   
@@ -688,7 +715,10 @@ def Automation_xl(uploaded_file):
           size = table_electric_heaters_208_3_KW[val]
       if voltage == 277 and phase == 1:
           val = EQ_277_1_KW(load)
-          size = table_electric_heaters_277_1_KW[val]        
+          size = table_electric_heaters_277_1_KW[val]
+      if voltage == 480 and phase == 3:
+          val = EQ_480_3_KW(load)
+          size = table_electric_heaters_480_3_KW[val] 
       return size
   
   def parse_load_value_MOP(load_value):
@@ -763,7 +793,8 @@ def Automation_xl(uploaded_file):
                   SH.cell(column=i+6, row=cell.row, value=value)
               continue
         except:
-            pass      
+            pass 
+         
              
       if cell.value is not None:
         try:  
