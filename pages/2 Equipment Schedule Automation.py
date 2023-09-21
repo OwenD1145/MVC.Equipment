@@ -177,6 +177,38 @@ def Automation_xl(uploaded_file):
       '600' : ['2[3-350kCMIL, #1G]', '(2) 3"', '200/2', '600A', 'FRN-R'],
       'something else' : ['blah']
   }
+
+ table_480_3_MCA = {
+      '5' : ['3#12,#12G.', '1/2"', '30/3', '5A', '---'],
+      '10' : ['3#12,#12G.', '1/2"', '30/3', '10A', '---'],
+      '15' : ['3#12,#12G.', '1/2"', '30/3', '15A', '---'],
+      '20' : ['3#12,#12G.', '1/2"', '30/3', '20A', 'FRS-R'],
+      '25' : ['3#10,#10G.', '3/4"', '30/2', '25A', 'FRS-R'],
+      '30' : ['3#10,#10G.', '3/4"', '30/2', '30A', 'FRS-R'],
+      '35' : ['3#8,#10G.', '3/4"', '60/2', '35A', 'FRS-R'],
+      '40' : ['3#8,#10G.', '3/4"', '60/2', '40A', 'FRS-R'],
+      '45' : ['3#6,#10G.', '1"', '60/2', '45A', 'FRS-R'],
+      '50' : ['3#6,#10G.', '1"', '60/2', '50A', 'FRS-R'],
+      '60' : ['3#4,#8G.', '1"', '60/2', '60A', 'FRS-R'],
+      '70' : ['3#4,#8G.', '1"', '60/2', '70A', 'FRS-R'],
+      '80' : ['3#3,#8G.', '1"', '100/2', '80A', 'FRS-R'],
+      '90' : ['3#2,#8G.', '1-1/4"', '100/2', '90A', 'FRS-R'],
+      '100' : ['3#1,#6G.', '1-1/2"', '100/2', '100A', 'FRS-R'],
+      '110' : ['3#1,#6G.', '1-1/2"', '200/2', '110A', 'FRS-R'],
+      '125' : ['3-1/0, #6G', '2"', '200/2', '125A', 'FRS-R'],
+      '150' : ['3-1/0, #6G', '2"', '200/2', '150A', 'FRS-R'],
+      '175' : ['3-2/0, #6G', '2"', '200/2', '175A', 'FRS-R'],
+      '200' : ['3-3/0, #6G', '2"', '200/2', '200A', 'FRS-R'],
+      '225' : ['3-4/0, #4G', '2"', '200/2', '225A', 'FRS-R'],
+      '250' : ['3-250kCMIL, #4G', '3"', '200/2', '250A', 'FRS-R'],
+      '300' : ['3-350kCMIL, #3G', '3"', '200/2', '300A', 'FRS-R'],
+      '350' : ['2[3-2/0, #3G]', '(2) 2"', '200/2', '350A', 'FRS-R'],
+      '400' : ['2[3-2/0, #3G]', '(2) 2"', '200/2', '400A', 'FRS-R'],
+      '450' : ['2[3-250kCMIL, #2G]', '(2) 3"', '200/2', '450A', 'FRS-R'],
+      '500' : ['2[3-250kCMIL, #2G]', '(2) 3"', '200/2', '500A', 'FRS-R'],
+      '600' : ['2[3-350kCMIL, #1G]', '(2) 3"', '200/2', '600A', 'FRS-R'],
+      'something else' : ['blah']
+  }
   
   table_120_1_HP = {
       '1/6' : ['2#12,1#12G.', '1/2"', '$T0', '---', ''],
@@ -582,19 +614,64 @@ def Automation_xl(uploaded_file):
       hp = ''
       print(f'number = {number}')
       match number:
-          case num if 0 < num <= 3:
-              hp = '1/6'
-          case num if 3 < num <= 4:
-              hp = '1/4'
-          case num if 4 < num <= 5:
-              hp = '1/3'
-          case num if 5 < num <= 6.75:
-              hp = '1/2'
-          case num if 6.75 < num <= 9.5:
-              hp = '3/4'
+          case num if 0 < num <= 5:
+              hp = '5'
+          case num if 5 < num <= 10:
+              hp = '10'
+          case num if 10 < num <= 15:
+              hp = '15'
+          case num if 15 < num <= 20:
+              hp = '20'
+          case num if 20 < num <= 25:
+              hp = '25'
+          case num if 25 < num <= 30:
+              hp = '30'
+          case num if 30 < num <= 35:
+              hp = '35'
+          case num if 35 < num <= 40:
+              hp = '40'
+          case num if 40 < num <= 45:
+              hp = '45'
+          case num if 45 < num <= 50:
+              hp = '50'
+          case num if 50 < num <= 60:
+              hp = '60'
+          case num if 60 < num <= 70:
+              hp = '70'
+          case num if 70 < num <= 80:
+              hp = '80'
+          case num if 80 < num <= 90:
+              hp = '90'
+          case num if 90 < num <= 100:
+              hp = '100'
+          case num if 100 < num <= 110:
+              hp = '110'
+          case num if 110 < num <= 125:
+              hp = '125'
+          case num if 125 < num <= 150:
+              hp = '150'
+          case num if 150 < num <= 175:
+              hp = '175'
+          case num if 175 < num <= 200:
+              hp = '200'
+          case num if 200 < num <= 225:
+              hp = '225'
+          case num if 225 < num <= 250:
+              hp = '250'
+          case num if 250 < num <= 300:
+              hp = '300'
+          case num if 300 < num <= 350:
+              hp = '350'
+          case num if 350 < num <= 400:
+              hp = '400'
+          case num if 400 < num <= 450:
+              hp = '450'
+          case num if 450 < num <= 500:
+              hp = '500'
+          case num if 500 < num <= 600:
+              hp = '600'    
           case _:
-              
-              hp = f'{load} not found'
+              hp = 'something else'
       print(f'hp = {hp}')
       return hp
   
@@ -629,8 +706,8 @@ def Automation_xl(uploaded_file):
           val = EQ_120_3_MCA(load)
           size = table_120_3_MCA[val]        
       if voltage == 480 and phase == 3:
-          val = EQ_120_3_MCA(load)
-          size = table_120_3_MCA[val] 
+          val = EQ_480_3_MCA(load)
+          size = table_480_3_MCA[val] 
       return size
   
   def volt_phase_check_AMPS(load, voltage, phase):
@@ -652,8 +729,8 @@ def Automation_xl(uploaded_file):
           val = EQ_120_3_MCA(MCA)
           size = table_120_3_MCA[val]       
       if voltage == 480 and phase == 3:
-          val = EQ_120_3_MCA(MCA)
-          size = table_120_3_MCA[val]
+          val = EQ_480_3_MCA(MCA)
+          size = table_480_3_MCA[val]
   
       print(val)        
       return size
