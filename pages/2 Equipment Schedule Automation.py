@@ -679,7 +679,7 @@ def Automation_xl(uploaded_file):
           val = EQ_277_1_KW(KW)
           size = table_electric_heaters_277_1_KW[val]   
       if voltage == 480 and phase == 3:
-          val = EQ_480_3_KW(load)
+          val = EQ_480_3_KW(KW)
           size = table_electric_heaters_480_3_KW[val] 
       
       return size
