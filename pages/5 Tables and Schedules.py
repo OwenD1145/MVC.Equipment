@@ -11,9 +11,12 @@ st.set_page_config(
 
 st.header(":space_invader: Tables and Schedules")
 st.markdown("##")
-CAtype = st.selectbox('Select Desired Table/Schedule',
-            ('None','Master Feeder - AL', 'Master Feeder - CU'))
-if CAtype == 'Master Feeder - AL':
+# CAtype = st.selectbox('Select Desired Table/Schedule',
+#             ('None','Master Feeder - AL', 'Master Feeder - CU'))
+# if CAtype == 'Master Feeder - AL':
+tab1, tab2 = st.tabs(["Master Feeder - AL", "Master Feeder - CU"])
+
+with tab1:
   st.text('Master Feeder - AL')
   ex = pd.DataFrame(
       {
@@ -27,7 +30,8 @@ if CAtype == 'Master Feeder - AL':
   )
   
   st.table(ex)
-if CAtype == 'Master Feeder - CU':
+# if CAtype == 'Master Feeder - CU':
+with tab2:
   st.text('Master Feeder - CU')
   ex = pd.DataFrame(
       {
