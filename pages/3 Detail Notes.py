@@ -15,7 +15,7 @@ st.markdown("##")
 
 option = st.selectbox(
     'What Detail Notes Are We Searching For?',
-    ('EV-Charging', 'Mechanical Systems', 'One-Line'))
+    ('EV-Charging', 'Comm. Systems', 'Mechanical Systems', 'One-Line'))
 
 EV = ('''
   	EVSE	ELECTRIC VEHICLE SUPPLY EQUIPMENT:
@@ -33,6 +33,14 @@ EVC	ELECTRIC VEHICLE CAPABLE ROUGH-IN:
 
 if option == 'EV-Charging':
 	st.code(EV, line_numbers=False)
+
+
+Comm = ('''
+  	PROVIDE COMMUNICATION BOX AND 120V RECEPTACLE AS SHOWN ON PLAN. COORDINATE EXACT LOCATION AND REQUIREMENTS WITH COMMUNICATIONS EQUIPMENT INSTALLER PRIOR TO ROUGH-IN.
+	''')
+
+if option == 'Comm. Systems':
+	st.code(Comm, line_numbers=False)
 
 
 	
