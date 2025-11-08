@@ -313,6 +313,10 @@ with tabs[1]:
         calc_mode = st.radio("Calculation Mode", ["Single Phase", "Three Phase"])
         
         if calc_mode == "Single Phase":
+            st.latex(r"S = V \times I")
+            st.latex(r"P = S \times \cos(\phi)")
+            st.latex(r"Q = S \times \sin(\phi)")
+            
             col1, col2, col3 = st.columns(3)
             with col1:
                 voltage_1ph = st.number_input("Voltage (V)", value=120.0, key="v_1ph")
@@ -331,6 +335,10 @@ with tabs[1]:
                 st.success(f"Reactive Power (VAR) = {vars_1ph:.2f} VAR")
         
         else:  # Three Phase
+            st.latex(r"S_{3\phi} = \sqrt{3} \times V_L \times I_L")
+            st.latex(r"P_{3\phi} = S_{3\phi} \times \cos(\phi)")
+            st.latex(r"Q_{3\phi} = S_{3\phi} \times \sin(\phi)")
+            
             col1, col2, col3 = st.columns(3)
             with col1:
                 voltage_3ph = st.number_input("Line Voltage (V)", value=480.0, key="v_3ph")
@@ -350,6 +358,9 @@ with tabs[1]:
     
     elif calc_type == "Voltage Drop":
         st.subheader("Voltage Drop Calculator")
+        st.latex(r"V_d = \frac{2 \times L \times I \times R}{1000}")
+        st.latex(r"\%V_d = \frac{V_d}{V_{system}} \times 100")
+        
         length = st.number_input("Wire Length (ft)", value=100)
         current = st.number_input("Current (A)", value=20)
         voltage = st.number_input("System Voltage (V)", value=120)
@@ -422,7 +433,6 @@ with tabs[2]:
                 result = response.json()
                 assistant_response = result["choices"][0]["message"]["content"]
                 st.session_state.messages.append({"role": "assistant", "content": assistant_response})
-                st.rerun()
             else:
                 st.error(f"API Error {response.status_code}: {response.text}")
         except Exception as e:
@@ -430,7 +440,6 @@ with tabs[2]:
     
     if st.button("🗑️ Clear Chat"):
         st.session_state.messages = []
-        st.rerun()
 
 # Tab 4: Reference Tables
 with tabs[3]:
@@ -528,7 +537,6 @@ with tabs[4]:
             
             st.session_state.quiz_total += 1
             st.session_state.current_question += 1
-            st.rerun()
     else:
         st.subheader("Quiz Complete!")
         score_percent = (st.session_state.quiz_score / st.session_state.quiz_total) * 100
@@ -538,18 +546,16 @@ with tabs[4]:
             st.session_state.current_question = 0
             st.session_state.quiz_score = 0
             st.session_state.quiz_total = 0
-            st.rerun()
 
 # Settings
 st.markdown("---")
-
+st.subheader("⚙️ Settings")
 col1, col2 = st.columns(2)
 with col1:
     st.success("✅ Groq API Connected")
 with col2:
     if st.button("🔄 Reset Session"):
         st.session_state.clear()
-        st.rerun()
 
 # Footer
-st.markdown("*Electrical Engineering Study Guide*")
+st.markdown("*Electrical Engineering Study Guide - Built with Streamlit*")
