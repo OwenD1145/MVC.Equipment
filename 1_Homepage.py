@@ -377,10 +377,11 @@ with tabs[2]:
         with col2:
             send_button = st.form_submit_button("💬 Send", use_container_width=True)
     
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+    # Display chat messages in scrollable container
+    with st.container(height=400):
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
     
     # Process input
     if prompt and send_button:
@@ -422,7 +423,6 @@ with tabs[2]:
                 result = response.json()
                 assistant_response = result["choices"][0]["message"]["content"]
                 st.session_state.messages.append({"role": "assistant", "content": assistant_response})
-                st.rerun()
             else:
                 st.error(f"API Error {response.status_code}: {response.text}")
         except Exception as e:
