@@ -369,11 +369,6 @@ with tabs[1]:
 with tabs[2]:
     st.header("EE Tutor Chatbot")
     
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    
     # Chat input with form for Enter key support
     with st.form(key="chat_form", clear_on_submit=True):
         col1, col2 = st.columns([4, 1])
@@ -381,6 +376,12 @@ with tabs[2]:
             prompt = st.text_input("Ask me anything about Electrical Engineering!", key="chat_input", label_visibility="collapsed")
         with col2:
             send_button = st.form_submit_button("💬 Send", use_container_width=True)
+    
+    # Display chat messages in scrollable container
+    with st.container(height=400):
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
     
     # Process input
     if prompt and send_button:
@@ -430,7 +431,6 @@ with tabs[2]:
     
     if st.button("🗑️ Clear Chat"):
         st.session_state.messages = []
-        st.rerun()
 
 # Tab 4: Reference Tables
 with tabs[3]:
@@ -528,7 +528,6 @@ with tabs[4]:
             
             st.session_state.quiz_total += 1
             st.session_state.current_question += 1
-            st.rerun()
     else:
         st.subheader("Quiz Complete!")
         score_percent = (st.session_state.quiz_score / st.session_state.quiz_total) * 100
@@ -538,7 +537,6 @@ with tabs[4]:
             st.session_state.current_question = 0
             st.session_state.quiz_score = 0
             st.session_state.quiz_total = 0
-            st.rerun()
 
 # Settings
 st.markdown("---")
@@ -549,7 +547,6 @@ with col1:
 with col2:
     if st.button("🔄 Reset Session"):
         st.session_state.clear()
-        st.rerun()
 
 # Footer
 st.markdown("*Electrical Engineering Study Guide*")
