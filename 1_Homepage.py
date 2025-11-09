@@ -23,7 +23,7 @@ if 'quiz_total' not in st.session_state:
 api_key = "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"
 
 # Main title
-st.title("Electrical Engineering Study Guide")
+st.title("Electrical Study Guide")
 
 # Tabs
 tabs = st.tabs(["Electrical Equations", "LLM Tutor", "Reference Tables", "Building Codes"])
