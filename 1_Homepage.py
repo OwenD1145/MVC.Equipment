@@ -26,7 +26,7 @@ api_key = "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"
 st.title("Electrical Study Guide")
 
 # Tabs
-tabs = st.tabs(["Electrical Equations", "LLM Tutor", "Reference Tables", "Building Codes"])
+tabs = st.tabs(["Electrical Equations", "Reference Tables", "Building Codes"])
 
 # Tab 1: Equations
 with tabs[0]:
