@@ -49,7 +49,7 @@ with tabs[0]:
             st.success(f"kVA = {va_1ph/1000:.2f} kVA")
     
     with st.expander("Three Phase Volt Amp"):
-        st.latex(r"VA = \left( V \times \sqrt{3} \right) \times A")
+        st.latex(r"VA = \left( V \times \sqrt{3} \right) \times \left( FLA \times A \right)")
         col1, col2 = st.columns(2)
         with col1:
             voltage_3ph = st.number_input("Line Voltage (V)", value=480.0, key="voltage_3ph")
