@@ -98,19 +98,53 @@ with tabs[0]:
 
     with st.expander("Engineering Equations"):
 
-        st.markdown("### 1. Voltage Drop (Three-Phase, per NEC approximation)")
-        st.latex(r"VD = \frac{1.73 \cdot K \cdot I \cdot L}{\text{CM}}")
+        st.markdown("### 1. Conductor Ampacity for Continuous Loads (NEC 210.19, 215.2)")
+        st.latex(r"I_{\text{Conductor Min}} = I_{\text{Continuous}} \cdot 1.25 + I_{\text{Noncontinuous}}")
         st.markdown(
-            "The formula approximates the **voltage drop** ($VD$) in a three-phase circuit. It's a key calculation in construction to ensure equipment receives sufficient voltage. $K$ is the conductor resistivity, $I$ is the current, $L$ is the conductor length, and $\text{CM}$ is the conductor's circular mil area."
+            "The minimum required ampacity for a branch-circuit or feeder conductor. **Continuous loads** (operating for 3 hours or more) must be multiplied by **125%** to size the conductor, ensuring safe operation and temperature rise limits. (Conversely, the maximum continuous load is $80\%$ of the conductor ampacity.)"
+        )
+        st.markdown("---")
+
+        st.markdown("### 2. Overcurrent Protection (OCPD) Sizing (NEC 210.20, 215.3)")
+        st.latex(r"I_{\text{OCPD Min}} = I_{\text{Continuous}} \cdot 1.25 + I_{\text{Noncontinuous}}")
+        st.markdown(
+            "The minimum rating for an overcurrent protection device (circuit breaker or fuse) must also be sized for $125\%$ of the **continuous load** plus $100\%$ of the noncontinuous load. The selected OCPD must be the **next standard size up** (NEC 240.6) if the calculated value isn't a standard size."
+        )
+        st.markdown("---")
+
+        st.markdown("### 3. Single-Phase Transformer kVA Rating")
+        st.latex(r"\text{kVA} = \frac{V \cdot I}{1000}")
+        st.markdown(
+            "This is the standard formula to convert load voltage and current into apparent power (kVA) to select a transformer size. Per NEC 450.3, the overcurrent protection for the primary and secondary must be sized based on the calculated current ($I$), often up to $125\%$ for continuous loading."
+        )
+        st.markdown("---")
+
+        st.markdown("### 4. Three-Phase Transformer kVA Rating")
+        st.latex(r"\text{kVA} = \frac{V_L \cdot I_L \cdot \sqrt{3}}{1000}")
+        st.markdown(
+            "Used for sizing three-phase transformers. $V_L$ and $I_L$ are the line-to-line voltage and line current, respectively. Note that $1.732$ is the common approximation for $\sqrt{3}$. This kVA value is used to determine the transformer's full-load primary and secondary currents for protection sizing."
+        )
+        st.markdown("---")
+
+        st.markdown("### 5. Voltage Drop Approximation (Three-Phase)")
+        st.latex(r"VD \approx \frac{\sqrt{3} \cdot K \cdot I \cdot L}{\text{CM}}")
+        st.markdown(
+            "Though not a mandatory requirement, the NEC (FPN to 210.19 and 215.2) recommends conductor sizes be selected to limit voltage drop ($VD$) to $\mathbf{3\%}$ for branch circuits and $\mathbf{5\%}$ total for feeders and branch circuits. $K$ is the conductor constant ($12.9$ for copper at $75^\circ \text{C}$), $I$ is current, $L$ is length, and $\text{CM}$ is circular mil area."
+        )
+        st.markdown("---")
+
+        st.markdown("### 6. Motor Feeder Conductor Sizing (NEC 430.24)")
+        st.latex(r"I_{\text{Feeder Min}} = (I_{\text{FLC, Largest Motor}} \cdot 1.25) + \sum I_{\text{FLC, Other Motors}} + I_{\text{Other Loads}}")
+        st.markdown(
+            "The minimum ampacity for a feeder supplying multiple motors. The full-load current (**FLC**) of the largest motor must be multiplied by $\mathbf{125\%}$, and the FLC of all other motors and non-motor loads must be added to that value."
         )
         st.markdown("---")
         
-        st.markdown("### 2. Conductor Resistance (as a function of resistivity)")
-        st.latex(r"R = \rho \frac{L}{A}")
+        st.markdown("### 7. Motor Overload Protection (NEC 430.32)")
+        st.latex(r"\text{Max. Overload Rating} = I_{\text{FLC}} \cdot 1.40")
         st.markdown(
-            "This equation calculates the **electrical resistance** ($R$) of a conductor based on its material's **resistivity** ($\rho$), its **length** ($L$), and its **cross-sectional area** ($A$). This is fundamental for voltage drop and heat calculations."
+            "The maximum setting for a motor's running overload protection device (fuse or relay) is $\mathbf{140\%}$ of the motor's nameplate FLC, unless a service factor of $\ge 1.15$ or a marked temperature rise of $\le 40^\circ \text{C}$ allows up to $\mathbf{125\%}$ of the FLC. This is separate from short-circuit protection."
         )
-
 
 # Tab 2: LLM Tutor
 with tabs[1]:
