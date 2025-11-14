@@ -54,7 +54,7 @@ with tabs[0]:
         with col1:
             voltage_3ph = st.number_input("Line Voltage (V)", value=480.0, key="voltage_3ph")
         with col2:
-            current_3ph = st.number_input("Line Current (A)", value=50.0, key="current_3ph")
+            current_3ph = st.number_input("Line Current (FLA)", value=50.0, key="current_3ph")
         
         if st.button("Calculate Three Phase VA"):
             va_3ph = (math.sqrt(3) * voltage_3ph) * (current_3ph * 1.25)
