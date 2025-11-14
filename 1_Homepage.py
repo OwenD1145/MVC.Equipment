@@ -36,7 +36,7 @@ with tabs[0]:
 
 
     with st.expander("Single Phase Volt Amp"):
-        st.latex(r"VA = V \times A")
+        st.latex(r"VA = V \times \left( FLA \times 1.25 \right)")
         col1, col2 = st.columns(2)
         with col1:
             voltage_1ph = st.number_input("Voltage (V)", value=120.0, key="voltage_1ph")
