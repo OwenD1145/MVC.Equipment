@@ -147,80 +147,80 @@ with tabs[0]:
         )
 
 # Tab 2: LLM Tutor
-with tabs[1]:
-    st.header("EE Tutor Chatbot")
+# with tabs[1]:
+#     st.header("EE Tutor Chatbot")
     
-    # Chat input with form for Enter key support
-    with st.form(key="chat_form", clear_on_submit=True):
-        col1, col2 = st.columns([4, 1])
-        with col1:
-            prompt = st.text_input("Ask me anything about Electrical Engineering!", key="chat_input", label_visibility="collapsed")
-        with col2:
-            send_button = st.form_submit_button("💬 Send", use_container_width=True)
+#     # Chat input with form for Enter key support
+#     with st.form(key="chat_form", clear_on_submit=True):
+#         col1, col2 = st.columns([4, 1])
+#         with col1:
+#             prompt = st.text_input("Ask me anything about Electrical Engineering!", key="chat_input", label_visibility="collapsed")
+#         with col2:
+#             send_button = st.form_submit_button("💬 Send", use_container_width=True)
     
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+#     # Display chat messages
+#     for message in st.session_state.messages:
+#         with st.chat_message(message["role"]):
+#             st.markdown(message["content"])
     
-    # Process input
-    if prompt and send_button:
-        st.session_state.messages.append({"role": "user", "content": prompt})
+#     # Process input
+#     if prompt and send_button:
+#         st.session_state.messages.append({"role": "user", "content": prompt})
         
-        # Display user message immediately
-        with st.chat_message("user"):
-            st.markdown(prompt)
+#         # Display user message immediately
+#         with st.chat_message("user"):
+#             st.markdown(prompt)
         
-        try:
-            # Groq API call
-            headers = {
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json"
-            }
+#         try:
+#             # Groq API call
+#             headers = {
+#                 "Authorization": f"Bearer {api_key}",
+#                 "Content-Type": "application/json"
+#             }
             
-            # Prepare messages with system prompt first
-            messages = [
-                {"role": "system", "content": "You are an expert Electrical Engineering tutor. Explain concepts clearly, solve problems step-by-step, provide examples, and focus on EE topics."}
-            ]
+#             # Prepare messages with system prompt first
+#             messages = [
+#                 {"role": "system", "content": "You are an expert Electrical Engineering tutor. Explain concepts clearly, solve problems step-by-step, provide examples, and focus on EE topics."}
+#             ]
             
-            # Add conversation history (excluding system messages)
-            for msg in st.session_state.messages:
-                if msg["role"] != "system":
-                    messages.append(msg)
+#             # Add conversation history (excluding system messages)
+#             for msg in st.session_state.messages:
+#                 if msg["role"] != "system":
+#                     messages.append(msg)
             
-            data = {
-                "messages": messages,
-                "model": "llama-3.1-8b-instant",
-                "temperature": 0.7,
-                "max_tokens": 1024,
-                "stream": False
-            }
+#             data = {
+#                 "messages": messages,
+#                 "model": "llama-3.1-8b-instant",
+#                 "temperature": 0.7,
+#                 "max_tokens": 1024,
+#                 "stream": False
+#             }
             
-            response = requests.post(
-                "https://api.groq.com/openai/v1/chat/completions",
-                headers=headers,
-                json=data,
-                timeout=30
-            )
+#             response = requests.post(
+#                 "https://api.groq.com/openai/v1/chat/completions",
+#                 headers=headers,
+#                 json=data,
+#                 timeout=30
+#             )
             
-            if response.status_code == 200:
-                result = response.json()
-                assistant_response = result["choices"][0]["message"]["content"]
-                st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+#             if response.status_code == 200:
+#                 result = response.json()
+#                 assistant_response = result["choices"][0]["message"]["content"]
+#                 st.session_state.messages.append({"role": "assistant", "content": assistant_response})
                 
-                # Display the new response immediately
-                with st.chat_message("assistant"):
-                    st.markdown(assistant_response)
-            else:
-                st.error(f"API Error {response.status_code}: {response.text}")
-        except Exception as e:
-            st.error(f"Error: {str(e)}")
+#                 # Display the new response immediately
+#                 with st.chat_message("assistant"):
+#                     st.markdown(assistant_response)
+#             else:
+#                 st.error(f"API Error {response.status_code}: {response.text}")
+#         except Exception as e:
+#             st.error(f"Error: {str(e)}")
     
-    if st.button("🗑️ Clear Chat"):
-        st.session_state.messages = []
+#     if st.button("🗑️ Clear Chat"):
+#         st.session_state.messages = []
 
 # Tab 3: Reference Tables
-with tabs[2]:
+with tabs[1]:
     st.header("Reference Tables & Tools")
     
     ref_type = st.selectbox("Reference Type", ["Master Feeder Tables", "Unit Converter"])
@@ -270,7 +270,7 @@ with tabs[2]:
     #         st.success(f"{kva} kVA at {voltage} V = {amps:.2f} A")
 
 # Tab 4: Electrical Building Codes
-with tabs[3]:
+with tabs[2]:
     st.header("Electrical Building Codes")
     
     # Search function
