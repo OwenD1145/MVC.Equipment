@@ -139,7 +139,7 @@ with tabs[0]:
             "The minimum ampacity for a feeder supplying multiple motors. The full-load current (**FLC**) of the largest motor must be multiplied by $\mathbf{125\%}$, and the FLC of all other motors and non-motor loads must be added to that value."
         )
         st.markdown("---")
-        
+
         st.markdown("### 7. Motor Overload Protection (NEC 430.32)")
         st.latex(r"\text{Max. Overload Rating} = I_{\text{FLC}} \cdot 1.40")
         st.markdown(
