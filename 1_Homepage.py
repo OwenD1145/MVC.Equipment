@@ -185,7 +185,7 @@ with tabs[2]:
                             'W- 2/0, #4G, 2"C', 'W-1/0, #6G, 2"C', 'W-1/0, #6G, 2"C', 'W#1, #6G, 1-1/2"C', 'W#2, #6G, 1-1/4"C', 'W#2, #8G, 1-1/4"C', 'W#4, #8G, 1-1/4"C', 'W#6, #8G, 1"C']
             }
             df_al = pd.DataFrame(al_data)
-            st.dataframe(df_al, height=600)
+            st.dataframe(df_al, height=1000)
         
         with tab2:
             st.subheader('Master Feeder - Copper')
@@ -198,22 +198,22 @@ with tabs[2]:
                             'W#2, #8G, 1-1/4"C', 'W#3, #8G, 1-1/4"C', 'W#4, #8G, 1-1/4"C', 'W#4, #8G, 1-1/4"C', 'W#6, #10G, 1"C', 'W#8, #10G, 1"C', 'W#10, #10G, 3/4"C', 'W#12, #12G, 3/4"C']
             }
             df_cu = pd.DataFrame(cu_data)
-            st.dataframe(df_cu, height=600)
+            st.dataframe(df_cu, height=1000)
     
     
-    elif ref_type == "Unit Converter":
-        st.subheader("Electrical Unit Converter")
-        conv_type = st.selectbox("Conversion", ["Watts to HP", "kVA to Amps", "Frequency to Period"])
+    # elif ref_type == "Unit Converter":
+    #     st.subheader("Electrical Unit Converter")
+    #     conv_type = st.selectbox("Conversion", ["Watts to HP", "kVA to Amps", "Frequency to Period"])
         
-        if conv_type == "Watts to HP":
-            watts = st.number_input("Power (Watts)", value=1000.0)
-            hp = watts / 746
-            st.success(f"{watts} W = {hp:.3f} HP")
-        elif conv_type == "kVA to Amps":
-            kva = st.number_input("Power (kVA)", value=10.0)
-            voltage = st.number_input("Voltage (V)", value=480.0, key="conv_v")
-            amps = (kva * 1000) / voltage
-            st.success(f"{kva} kVA at {voltage} V = {amps:.2f} A")
+    #     if conv_type == "Watts to HP":
+    #         watts = st.number_input("Power (Watts)", value=1000.0)
+    #         hp = watts / 746
+    #         st.success(f"{watts} W = {hp:.3f} HP")
+    #     elif conv_type == "kVA to Amps":
+    #         kva = st.number_input("Power (kVA)", value=10.0)
+    #         voltage = st.number_input("Voltage (V)", value=480.0, key="conv_v")
+    #         amps = (kva * 1000) / voltage
+    #         st.success(f"{kva} kVA at {voltage} V = {amps:.2f} A")
 
 # Tab 4: Electrical Building Codes
 with tabs[3]:
