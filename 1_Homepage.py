@@ -94,7 +94,22 @@ with tabs[0]:
             st.success(f"Load Current = {current:.1f} A")
             st.success(f"Min Breaker (125%) = {breaker_current:.1f} A")
             st.success(f"Standard Breaker = {selected_breaker} A")
-    
+
+
+    with st.expander("Engineering Equations"):
+
+        st.markdown("### 1. Voltage Drop (Three-Phase, per NEC approximation)")
+        st.latex(r"VD = \frac{1.73 \cdot K \cdot I \cdot L}{\text{CM}}")
+        st.markdown(
+            "The formula approximates the **voltage drop** ($VD$) in a three-phase circuit. It's a key calculation in construction to ensure equipment receives sufficient voltage. $K$ is the conductor resistivity, $I$ is the current, $L$ is the conductor length, and $\text{CM}$ is the conductor's circular mil area."
+        )
+        st.markdown("---")
+        
+        st.markdown("### 2. Conductor Resistance (as a function of resistivity)")
+        st.latex(r"R = \rho \frac{L}{A}")
+        st.markdown(
+            "This equation calculates the **electrical resistance** ($R$) of a conductor based on its material's **resistivity** ($\rho$), its **length** ($L$), and its **cross-sectional area** ($A$). This is fundamental for voltage drop and heat calculations."
+        )
 
 
 # Tab 2: LLM Tutor
