@@ -57,7 +57,7 @@ with tabs[0]:
             current_3ph = st.number_input("Line Current (FLA)", value=50.0, key="current_3ph")
         
         if st.button("Calculate Three Phase VA"):
-            va_3ph = (math.sqrt(3) * voltage_3ph) * (current_3ph * 1.25)
+            va_3ph = round((math.sqrt(3) * voltage_3ph), 2) * (current_3ph * 1.25)
             st.success(f"VA = {va_3ph:.0f} VA")
             st.success(f" W / PH = {va_3ph/3:.2f} VA")
     
