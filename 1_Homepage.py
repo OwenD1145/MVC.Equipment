@@ -48,10 +48,10 @@ with tabs[0]:
             st.success(f"VA = {va_1ph:.0f} VA")
             st.success(f" W / PH = {va_1ph/2:.2f} VA")
 
-        if st.button("Calculate Single Phase VA (MCA)"):
-            va_1ph = voltage_1ph * current_1ph
-            st.success(f"VA = {va_1ph:.0f} VA")
-            st.success(f" W / PH = {va_1ph/2:.2f} VA")
+        # if st.button("Calculate Single Phase VA (MCA)"):
+        #     va_1ph = voltage_1ph * current_1ph
+        #     st.success(f"VA = {va_1ph:.0f} VA")
+        #     st.success(f" W / PH = {va_1ph/2:.2f} VA")
     
     with st.expander("Three Phase Volt Amp"):
         st.latex(r"VA = \left( V \times \sqrt{3} \right) \times \left( FLA \times 1.25 \right)")
@@ -66,34 +66,34 @@ with tabs[0]:
             st.success(f"VA = {va_3ph:.0f} VA")
             st.success(f" W / PH = {va_3ph/3:.2f} VA")
     
-    # with st.expander("Breaker Size Calculator"):
-    #     st.latex(r"I = \frac{P}{V} \text{ (1φ)} \quad I = \frac{P}{\sqrt{3} \times V} \text{ (3φ)}")
-    #     col1, col2, col3 = st.columns(3)
-    #     with col1:
-    #         load_watts = st.number_input("Load (Watts)", value=5000.0, key="load_watts")
-    #     with col2:
-    #         system_voltage = st.selectbox("System Voltage", ["120V", "208V", "277V", "480V"], key="system_voltage")
-    #     with col3:
-    #         phase_type = st.selectbox("Phase", ["Single Phase", "Three Phase"], key="phase_type")
+    with st.expander("Breaker Size Calculator"):
+        st.latex(r"I = \frac{P}{V} \text{ (1φ)} \quad I = \frac{P}{\sqrt{3} \times V} \text{ (3φ)}")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            load_watts = st.number_input("Load (Watts)", value=5000.0, key="load_watts")
+        with col2:
+            system_voltage = st.selectbox("System Voltage", ["120V", "208V", "277V", "480V"], key="system_voltage")
+        with col3:
+            phase_type = st.selectbox("Phase", ["Single Phase", "Three Phase"], key="phase_type")
         
-    #     if st.button("Calculate Breaker Size"):
-    #         voltage = float(system_voltage.replace("V", ""))
+        if st.button("Calculate Breaker Size"):
+            voltage = float(system_voltage.replace("V", ""))
             
-    #         if phase_type == "Single Phase":
-    #             current = load_watts / voltage
-    #         else:
-    #             current = load_watts / (math.sqrt(3) * voltage)
+            if phase_type == "Single Phase":
+                current = load_watts / voltage
+            else:
+                current = load_watts / (math.sqrt(3) * voltage)
             
-    #         # NEC 125% rule for continuous loads
-    #         breaker_current = current * 1.25
+            # NEC 125% rule for continuous loads
+            breaker_current = current * 1.25
             
-    #         # Standard US breaker sizes
-    #         standard_sizes = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400, 450, 500, 600, 700, 800, 1000, 1200]
-    #         selected_breaker = next((size for size in standard_sizes if size >= breaker_current), standard_sizes[-1])
+            # Standard US breaker sizes
+            standard_sizes = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400, 450, 500, 600, 700, 800, 1000, 1200]
+            selected_breaker = next((size for size in standard_sizes if size >= breaker_current), standard_sizes[-1])
             
-    #         st.success(f"Load Current = {current:.1f} A")
-    #         st.success(f"Min Breaker (125%) = {breaker_current:.1f} A")
-    #         st.success(f"Standard Breaker = {selected_breaker} A")
+            st.success(f"Load Current = {current:.1f} A")
+            st.success(f"Min Breaker (125%) = {breaker_current:.1f} A")
+            st.success(f"Standard Breaker = {selected_breaker} A")
     
 
 
