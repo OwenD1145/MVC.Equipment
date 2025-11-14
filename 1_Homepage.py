@@ -276,12 +276,12 @@ with tabs[3]:
 # Settings
 st.markdown("---")
 
-col1, col2 = st.columns(2)
-with col1:
-    st.success("✅ Groq API Connected")
-with col2:
-    if st.button("🔄 Reset Session"):
-        st.session_state.clear()
+# col1, col2 = st.columns(2)
+# with col1:
+#     st.success("✅ Groq API Connected")
+# with col2:
+#     if st.button("🔄 Reset Session"):
+#         st.session_state.clear()
 
 # Footer
-st.markdown("*Electrical Engineering Study Guide*")
+st.markdown("*Electrical Study Guide*")
