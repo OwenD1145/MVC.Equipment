@@ -41,10 +41,10 @@ with tabs[0]:
         with col1:
             voltage_1ph = st.number_input("Voltage (V)", value=120.0, key="voltage_1ph")
         with col2:
-            current_1ph = st.number_input("Current (A)", value=20.0, key="current_1ph")
+            current_1ph = st.number_input("Current (FLA)", value=20.0, key="current_1ph")
         
         if st.button("Calculate Single Phase VA"):
-            va_1ph = voltage_1ph * current_1ph
+            va_1ph = voltage_1ph * (current_1ph * 1.25)
             st.success(f"VA = {va_1ph:.0f} VA")
             st.success(f"kVA = {va_1ph/1000:.2f} kVA")
     
