@@ -46,7 +46,6 @@ with tabs[0]:
         if st.button("Calculate Single Phase VA"):
             va_1ph = voltage_1ph * (current_1ph * 1.25)
             st.success(f"VA = {va_1ph:.0f} VA")
-            st.success(f"kVA = {va_1ph/1000:.2f} kVA")
             st.success(f" W / PH = {va_1ph/2:.2f} VA")
     
     with st.expander("Three Phase Volt Amp"):
@@ -60,7 +59,7 @@ with tabs[0]:
         if st.button("Calculate Three Phase VA"):
             va_3ph = (math.sqrt(3) * voltage_3ph) * (current_3ph * 1.25)
             st.success(f"VA = {va_3ph:.0f} VA")
-            st.success(f"kVA = {va_3ph/1000:.2f} kVA")
+            st.success(f" W / PH = {va_3ph/3:.2f} VA")
     
     with st.expander("Breaker Size Calculator"):
         st.latex(r"I = \frac{P}{V} \text{ (1φ)} \quad I = \frac{P}{\sqrt{3} \times V} \text{ (3φ)}")
