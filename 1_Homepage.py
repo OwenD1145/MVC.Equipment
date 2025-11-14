@@ -67,7 +67,7 @@ with tabs[0]:
             st.success(f" W / PH = {va_3ph/3:.2f} VA")
     
     with st.expander("Breaker Size Calculator"):
-        st.latex(r"A = \frac{Load}{Voltage} \text{ (1φ)} \quad A = \frac{Load}{\sqrt{3} \times Voltage} \text{ (3φ)}")
+        st.latex(r"A = \frac{Load}{Voltage} \quad A = \frac{Load}{\sqrt{3} \times Voltage}")
         col1, col2, col3 = st.columns(3)
         with col1:
             load_watts = st.number_input("Load (Watts)", value=5000.0, key="load_watts")
