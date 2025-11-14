@@ -47,6 +47,11 @@ with tabs[0]:
             va_1ph = voltage_1ph * (current_1ph * 1.25)
             st.success(f"VA = {va_1ph:.0f} VA")
             st.success(f" W / PH = {va_1ph/2:.2f} VA")
+
+        if st.button("Calculate Single Phase VA (MCA)"):
+            va_1ph = voltage_1ph * current_1ph
+            st.success(f"VA = {va_1ph:.0f} VA")
+            st.success(f" W / PH = {va_1ph/2:.2f} VA")
     
     with st.expander("Three Phase Volt Amp"):
         st.latex(r"VA = \left( V \times \sqrt{3} \right) \times \left( FLA \times 1.25 \right)")
