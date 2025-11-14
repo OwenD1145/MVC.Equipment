@@ -319,7 +319,7 @@ with tabs[2]:
     # Display codes
     if filtered_codes:
         for code_title, description in filtered_codes.items():
-            with st.expander(f"📋 {code_title}"):
+            with st.expander(f"{code_title}"):
                 st.write(description)
     else:
         st.info("No codes found matching your search term.")
