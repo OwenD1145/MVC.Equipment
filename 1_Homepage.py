@@ -20,7 +20,7 @@ if 'quiz_total' not in st.session_state:
     st.session_state.quiz_total = 0
 
 # Use hardcoded Groq API key
-# api_key = ""
+api_key = "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"
 
 # Main title
 st.title("Electrical Study Guide")
